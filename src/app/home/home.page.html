@@ -1,14 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Difela tsa Sepedi  <ion-icon button name="star"></ion-icon>
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-searchbar (ionChange)="setFilteredItems()" [(ngModel)]="searchTerm" showCancelButton="never" placeholder="Hymn Number, Lyrics, Title"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+    <ion-list>
+        <ion-item button *ngFor="let item of items" (click)="openHymnDetails(item.title)">
+            <ion-label>{{item.title}}</ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>
