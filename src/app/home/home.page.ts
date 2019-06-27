@@ -17,7 +17,6 @@ export class HomePage implements OnInit {
 
     setFilteredItems(){
         this.items = this._data.filterItems(this.searchTerm);
-        console.log("filter");
     }
 
     ngOnInit() {
