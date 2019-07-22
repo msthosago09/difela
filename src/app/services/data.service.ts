@@ -10,9 +10,12 @@ export class DataService {
 
     constructor() {
         this.items = [
-            {title: "one"}, {title: "two"},
-            {title: "three"}, {title: "four"},
-            {title: "five"}, {title: "six"}
+            {title: "one"}, {title: "two"},{title: "ten"},{title: "eleven"},
+            {title: "three"}, {title: "four"}, {title: "nine"},{title: "twelve"},
+            {title: "five"}, {title: "six"}, {title: "seven"}, {title: "eight"},
+            {title: "one"}, {title: "two"},{title: "ten"},{title: "eleven"},
+            {title: "three"}, {title: "four"}, {title: "nine"},{title: "twelve"},
+            {title: "five"}, {title: "six"}, {title: "seven"}, {title: "eight"}
         ];
     }
 
@@ -23,10 +26,15 @@ export class DataService {
     }
 
     selectHymn(num) {
+        console.log("selected "+num)
         this.selectedNumber = num;
     }
 
     getHymn(){
-        return this.selectedNumber
+        return this.selectedNumber;
+    }
+
+    addToFavesDb(id){
+        console.log("adding to faves: "+id);
     }
 }

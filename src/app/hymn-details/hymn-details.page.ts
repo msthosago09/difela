@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Platform} from "@ionic/angular";
 import {Router} from "@angular/router";
 import {DataService} from "../services/data.service";
@@ -8,15 +8,22 @@ import {DataService} from "../services/data.service";
   templateUrl: 'hymn-details.page.html',
   styleUrls: ['hymn-details.page.scss'],
 })
-export class HymnDetailsPage {
+export class HymnDetailsPage implements OnInit{
     public number: String;
+    public favourite: boolean = false;
 
     constructor(private platform: Platform, private _router: Router, private _data: DataService) {
-      this.loadHymn();
     }
 
     loadHymn() {
         this.number = this._data.getHymn();
     }
 
+    ngOnInit() {
+        this.loadHymn();
+    }
+
+    addToFaves(id){
+        this._data.addToFavesDb(id);
+    }
 }

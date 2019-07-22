@@ -1,18 +1,23 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>
-            Difela tsa Sepedi  <ion-icon button name="star"></ion-icon>
+    <ion-toolbar color="primary">
+        <ion-title style="text-align: center;">
+            Difela tsa Sepedi
         </ion-title>
     </ion-toolbar>
-    <ion-toolbar>
+    <ion-toolbar color="primary">
         <ion-searchbar (ionChange)="setFilteredItems()" [(ngModel)]="searchTerm" showCancelButton="never" placeholder="Hymn Number, Lyrics, Title"></ion-searchbar>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
-        <ion-item button *ngFor="let item of items" (click)="openHymnDetails(item.title)">
+        <ion-item button *ngFor="let item of items" (click)="openHymnDetails(item.title)" detail-push>
             <ion-label>{{item.title}}</ion-label>
         </ion-item>
     </ion-list>
+<!--    <ion-virtual-scroll [items]="items">
+        <ion-item button *virtualItem="let item">
+            {{ item.title }}
+        </ion-item>
+    </ion-virtual-scroll>-->
 </ion-content>
